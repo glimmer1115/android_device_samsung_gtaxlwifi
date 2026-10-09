@@ -7,11 +7,6 @@ TARGET_BOOTLOADER_BOARD_NAME := universal7870
 TARGET_BOARD_PLATFORM := exynos5
 TARGET_BOARD_PLATFORM_GPU := mali-t830mp2
 
-# Flags
-#TARGET_GLOBAL_CFLAGS +=
-#TARGET_GLOBAL_CPPFLAGS +=
-#COMMON_GLOBAL_CFLAGS +=
-
 # Architecture
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
@@ -44,7 +39,12 @@ BOARD_CACHEIMAGE_PARTITION_SIZE    := 0x00C800000
 BOARD_FLASH_BLOCK_SIZE := 131072
 
 TARGET_PREBUILT_KERNEL := device/samsung/gtaxlwifi/Image
+
+# --- [핵심 수정 부분: dt.img 에러 해결] ---
+# 기존 TARGET_PREBUILT_DTB 외에 BOARD_PREBUILT_DTB_IMAGE를 추가하여 Ninja 에러를 해결합니다.
 TARGET_PREBUILT_DTB := device/samsung/gtaxlwifi/dtb.img
+BOARD_PREBUILT_DTB_IMAGE := device/samsung/gtaxlwifi/dtb.img
+# ---------------------------------------
 
 # Use this flag if the board has a ext4 partition larger than 2gb
 BOARD_HAS_LARGE_FILESYSTEM := true
