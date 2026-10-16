@@ -1,7 +1,8 @@
-# Architecture
-TARGET_ARCH := arm
-TARGET_ARCH_VARIANT := armv7-a-neon
-TARGET_CPU_ABI := armeabi-v7a
+# Architecture (Exynos 7870 코어 스펙에 맞춘 arm64 설정)
+TARGET_ARCH := arm64
+TARGET_ARCH_VARIANT := armv8-a
+TARGET_CPU_ABI := arm64-v8a
+TARGET_CPU_ABI2 := armeabi-v7a
 TARGET_CPU_VARIANT := generic
 
 # Bootloader
@@ -27,13 +28,12 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 39845888
 BOARD_USES_NAND := false
 
-# Graphics & Display (실측 1200x1920, 32bpp 반영)
+# Graphics & Display (실측 1200x1920, 레거시 프레임버퍼 제거 및 RGBA 포맷 조정)
 BOARD_RECOVERY_SCREEN_WIDTH := 1200
 BOARD_RECOVERY_SCREEN_HEIGHT := 1920
-TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
-RECOVERY_GRAPHICS_USE_LINUX_FB := true
+TARGET_RECOVERY_PIXEL_FORMAT := "RGBA_8888"
 
-# TWRP Configuration & UI Rendering (실측 백라이트 경로 및 최대치 반영)
+# TWRP Configuration & UI Rendering (백라이트 제어 설정)
 TW_THEME := portrait_hdpi
 TW_SCREEN_BLANK_ON_BOOT := true
 TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel/brightness"
