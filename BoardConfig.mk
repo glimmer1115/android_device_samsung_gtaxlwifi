@@ -42,3 +42,20 @@ TW_DEFAULT_BRIGHTNESS := 180
 
 # Hardware Exclusions
 BOARD_HAS_MTK_HARDWARE := false
+# ===== Backlight =====
+TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel/brightness"
+TW_MAX_BRIGHTNESS := 255
+TW_DEFAULT_BRIGHTNESS := 255
+TW_NO_SCREEN_BLANK := true
+TW_NO_SCREEN_TIMEOUT := true
+
+# ===== Graphics (1200x1920) =====
+TARGET_SCREEN_WIDTH := 1200
+TARGET_SCREEN_HEIGHT := 1920
+TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
+RECOVERY_GRAPHICS_USE_LINELENGTH := true
+
+# ===== TWRP =====
+TW_THEME := portrait_hdpi
+TW_NO_REBOOT_BOOTLOADER := true
+TW_HAS_DOWNLOAD_MODE := true
